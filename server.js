@@ -18,7 +18,7 @@ app.get("/coins", async (_, res) => {
 app.get("/:coin_id", async (req, res) => {
   const { coin_id } = req.params;
   try {
-    const response = await axios.get(`${BASE_URL}/${coin_id}`);
+    const response = await axios.get(`${BASE_URL}/coins/${coin_id}`);
     res.json(response.data);
   } catch (e) {
     res.status(500).json({ error: "Fetch failed" });
