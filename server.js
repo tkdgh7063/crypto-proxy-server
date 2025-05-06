@@ -16,9 +16,14 @@ app.get("/coins", async (_, res) => {
     const response = await axios.get(`${BASE_URL}/coins`);
     res.json(response.data);
   } catch (e) {
-    console.log(`coins: ${e.response.data}`);
-    // res.status(500).json({ error: "Fetch failed" });
-    res.json(response.data);
+    if (e.response) {
+      console.log("Status Code: ", e.response.status);
+      console.log("Response Data: ", e.response.data);
+    } else if (e.request) {
+      console.error("No Response: ", e.request);
+    } else {
+      console.error("Axios Error: ", e.message);
+    }
   }
 });
 
