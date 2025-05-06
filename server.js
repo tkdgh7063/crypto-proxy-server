@@ -17,7 +17,8 @@ app.get("/coins", async (_, res) => {
     res.json(response.data);
   } catch (e) {
     console.log(`coins: ${e}`);
-    res.status(500).json({ error: "Fetch failed" });
+    // res.status(500).json({ error: "Fetch failed" });
+    res.json(response.data);
   }
 });
 
@@ -28,7 +29,8 @@ app.get("/coins/:coin_id", async (req, res) => {
     res.json(response.data);
   } catch (e) {
     console.log(`${coin_id}: ${e}`);
-    res.status(500).json({ error: "Fetch failed" });
+    // res.status(500).json({ error: "Fetch failed" });
+    res.json(response.data);
   }
 });
 
@@ -39,7 +41,8 @@ app.get("/tickers/:coin_id", async (req, res) => {
     res.json(response.data);
   } catch (e) {
     console.log(`tickers ${coin_id}: ${e}`);
-    res.status(500).json({ error: "Fetch failed" });
+    // res.status(500).json({ error: "Fetch failed" });
+    res.json(response.data);
   }
 });
 
