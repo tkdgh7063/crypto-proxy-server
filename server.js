@@ -22,8 +22,10 @@ app.get("/coins", async (_, res) => {
       res.json(e.response.data);
     } else if (e.request) {
       console.error("No Response: ", e.request);
+      res.status(500).json({ error: "Unknown error Occurs" });
     } else {
       console.error("Axios Error: ", e.message);
+      res.status(500).json({ error: "Axios error Occurs" });
     }
   }
 });
@@ -40,8 +42,10 @@ app.get("/coins/:coin_id", async (req, res) => {
       res.json(e.response.data);
     } else if (e.request) {
       console.error("No Response: ", e.request);
+      res.status(500).json({ error: "Unknown error Occurs" });
     } else {
       console.error("Axios Error: ", e.message);
+      res.status(500).json({ error: "Axios error Occurs" });
     }
   }
 });
@@ -58,8 +62,10 @@ app.get("/tickers/:coin_id", async (req, res) => {
       res.json(e.response.data);
     } else if (e.request) {
       console.error("No Response: ", e.request);
+      res.status(500).json({ error: "Unknown error Occurs" });
     } else {
       console.error("Axios Error: ", e.message);
+      res.status(500).json({ error: "Axios error Occurs" });
     }
   }
 });
