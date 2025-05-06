@@ -6,7 +6,7 @@ const app = express();
 
 const BASE_URL = `http://api.coinpaprika.com/v1`;
 
-app.get("/", async (_, res) => {
+app.get("/coins", async (_, res) => {
   try {
     const response = await axios.get(`${BASE_URL}/coins`);
     res.json(response.data);
