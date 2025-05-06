@@ -19,6 +19,7 @@ app.get("/coins", async (_, res) => {
     if (e.response) {
       console.log("Status Code: ", e.response.status);
       console.log("Response Data: ", e.response.data);
+      res.json(e.response.data);
     } else if (e.request) {
       console.error("No Response: ", e.request);
     } else {
@@ -33,9 +34,15 @@ app.get("/coins/:coin_id", async (req, res) => {
     const response = await axios.get(`${BASE_URL}/coins/${coin_id}`);
     res.json(response.data);
   } catch (e) {
-    console.log(`${coin_id}: ${e.response.data}`);
-    // res.status(500).json({ error: "Fetch failed" });
-    res.json(response.data);
+    if (e.response) {
+      console.log("Status Code: ", e.response.status);
+      console.log("Response Data: ", e.response.data);
+      res.json(e.response.data);
+    } else if (e.request) {
+      console.error("No Response: ", e.request);
+    } else {
+      console.error("Axios Error: ", e.message);
+    }
   }
 });
 
@@ -45,9 +52,15 @@ app.get("/tickers/:coin_id", async (req, res) => {
     const response = await axios.get(`${BASE_URL}/tickers/${coin_id}`);
     res.json(response.data);
   } catch (e) {
-    console.log(`tickers ${coin_id}: ${e.response.data}`);
-    // res.status(500).json({ error: "Fetch failed" });
-    res.json(response.data);
+    if (e.response) {
+      console.log("Status Code: ", e.response.status);
+      console.log("Response Data: ", e.response.data);
+      res.json(e.response.data);
+    } else if (e.request) {
+      console.error("No Response: ", e.request);
+    } else {
+      console.error("Axios Error: ", e.message);
+    }
   }
 });
 
