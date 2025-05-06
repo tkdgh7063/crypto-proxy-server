@@ -3,6 +3,11 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
+app.use(
+  cors({
+    origin: ["https://tkdgh7063.github.io/Crypto-app", "http://localhost:3000"],
+  })
+);
 
 const BASE_URL = `http://api.coinpaprika.com/v1`;
 
