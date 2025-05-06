@@ -16,6 +16,7 @@ app.get("/coins", async (_, res) => {
     const response = await axios.get(`${BASE_URL}/coins`);
     res.json(response.data);
   } catch (e) {
+    console.log(`coins: ${e}`);
     res.status(500).json({ error: "Fetch failed" });
   }
 });
@@ -26,6 +27,7 @@ app.get("/coins/:coin_id", async (req, res) => {
     const response = await axios.get(`${BASE_URL}/coins/${coin_id}`);
     res.json(response.data);
   } catch (e) {
+    console.log(`${coin_id}: ${e}`);
     res.status(500).json({ error: "Fetch failed" });
   }
 });
@@ -36,6 +38,7 @@ app.get("/tickers/:coin_id", async (req, res) => {
     const response = await axios.get(`${BASE_URL}/tickers/${coin_id}`);
     res.json(response.data);
   } catch (e) {
+    console.log(`tickers ${coin_id}: ${e}`);
     res.status(500).json({ error: "Fetch failed" });
   }
 });
