@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 app.use(
   cors({
-    origin: ["https://tkdgh7063.github.io/Crypto-app", "http://localhost:3000"],
+    origin: ["https://tkdgh7063.github.io", "http://localhost:3000"],
   })
 );
 
